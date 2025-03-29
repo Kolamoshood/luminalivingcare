@@ -50,7 +50,7 @@ body{
 	font-size:14px;
 	color:#888;
 }
-#scrollUp {
+/* #scrollUp {
 	bottom: 15px;
 	right: 15px;
 	padding: 10px 20px;
@@ -67,7 +67,7 @@ body{
 }
 #scrollUp:hover{
 	background:#001A6E;
-}
+} */
 /* Color Plate */
 .color-plate {
 	position: fixed;
@@ -239,6 +239,7 @@ body{
 .header .logo {
 	float: left;
 	margin-top: 8px;
+	margin-bottom: 8px;
 }
 .header .navbar {
 	background: none;
@@ -358,31 +359,55 @@ body{
 	margin-left:0;
 }
 /* Dropdown Menu */
+/* First-Level Dropdown */
 .header .nav li .dropdown {
-	background: #fff;
-	width: 220px;
-	position: absolute;
-	left:-20px;
-	top: 100%;
-	z-index: 999;
-	-webkit-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
-	-moz-box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
-	box-shadow: 0px 3px 5px #3333334d;
-	transform-origin: 0 0 0;
-	transform: scaleY(0.2);
-	-webkit-transition: all 0.3s ease 0s;
-	-moz-transition: all 0.3s ease 0s;
-	transition: all 0.3s ease 0s;
-	opacity: 0;
-	visibility: hidden;
-	top: 74px;
-	border-left:3px solid #001A6E;
+    background: #fff;
+    width: 220px;
+    position: absolute;
+    left: -20px;
+    top: 100%;
+    z-index: 999;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+    transform-origin: 0 0 0;
+    transform: scaleY(0.2);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    border-left: 3px solid #001A6E;
 }
-.header .nav li:hover .dropdown{
-	opacity:1;
-	visibility:visible;
-	transform:translateY(0px);
+
+/* Show First-Level Dropdown on Hover */
+.header .nav li:hover > .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: scaleY(1);
 }
+
+/* Second-Level Dropdown */
+.header .nav li .dropdown .dropdown {
+    background: #fff;
+    width: 220px;
+    position: absolute;
+    left: -300px;
+    top: 0;
+    z-index: 999;
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+    transform: scaleY(0.2);
+    transition: opacity 0.3s ease 0.15s, transform 0.3s ease 0.15s; /* Delay of 0.15s */
+    opacity: 0;
+    visibility: hidden;
+    border-left: 3px solid #001A6E;
+}
+
+/* Show Second-Level Dropdown ONLY When Hovering Over Parent */
+.header .nav li .dropdown li:hover > .dropdown {
+    left: 80%;
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+    transform: scaleY(1);
+}
+
 .header .nav li .dropdown li{
 	float:none;
 	margin:0;
@@ -530,7 +555,7 @@ body{
 	Start Hero Area CSS
 =============================*/
 .slider .single-slider {
-	height: 600px;
+	height: 450px;
 	background-size: cover;
 	background-position: center;
 	background-repeat:no-repeat;
@@ -851,6 +876,22 @@ body{
 }
 .Feautes .row .text-center .btn{
 	color:#001A6E;
+	background:goldenrod;
+	font-weight:500;
+	display:inline-block;
+	margin:0;
+	margin-right:10px;
+}
+.about-area .container .text-center .btn{
+	color:#ffffff;
+	background:goldenrod;
+	font-weight:500;
+	display:inline-block;
+	margin:0;
+	margin-right:10px;
+}
+.service-details-area .container .text-center .btn{
+	color:#ffffff;
 	background:goldenrod;
 	font-weight:500;
 	display:inline-block;
